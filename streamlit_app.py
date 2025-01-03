@@ -7,11 +7,11 @@ import sklearn
 with open('models.pkl', 'rb') as file:
     loaded_models = pickle.load(file)
 
-# Pilih model yang ingin digunakan
-model = loaded_models['Random Forest']  # Ganti dengan model yang diinginkan
-
 # Judul aplikasi
 st.title("Water Potability Prediction")
+
+# Pilih algoritma
+algorithm = st.selectbox("Pilih Algoritma", options=list(loaded_models.keys()))
 
 # Input fitur
 ph = st.number_input("pH Level", min_value=0.0, max_value=14.0, value=7.0)
@@ -32,6 +32,7 @@ if st.button("Predict"):
     st.write("Input Features:", features)
     
     try:
+        model = loaded_models[algorithm]
         prediction = model.predict(features)
         if prediction[0] == 1:
             st.success("Water is Potable")
