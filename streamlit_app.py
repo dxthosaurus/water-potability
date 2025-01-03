@@ -11,7 +11,7 @@ with open('models.pkl', 'rb') as file:
 st.title("Water Potability Prediction")
 
 # Pilih algoritma
-algorithm = st.selectbox("Pilih Algoritma", options=list(loaded_models.keys()))
+algorithm = st.selectbox("Select Algorithm", options=list(loaded_models.keys()))
 
 # Input fitur
 ph = st.number_input("pH Level", min_value=0.0, max_value=14.0, value=7.0)
@@ -24,12 +24,27 @@ organic_carbon = st.number_input("Organic Carbon", min_value=0.0, value=10.0)
 trihalomethanes = st.number_input("Trihalomethanes", min_value=0.0, value=80.0)
 turbidity = st.number_input("Turbidity", min_value=0.0, value=4.0)
 
-# Buat prediksi
+# Prediksi
 if st.button("Predict"):
     features = np.array([[ph, hardness, solids, chloramines, sulfate, conductivity, organic_carbon, trihalomethanes, turbidity]])
+
+        # Dictionary untuk menampilkan input fitur dengan nama
+    feature_names = {
+        "pH Level": ph,
+        "Hardness": hardness,
+        "Solids": solids,
+        "Chloramines": chloramines,
+        "Sulfate": sulfate,
+        "Conductivity": conductivity,
+        "Organic Carbon": organic_carbon,
+        "Trihalomethanes": trihalomethanes,
+        "Turbidity": turbidity
+    }
     
-    # Debugging: Print input features
-    st.write("Input Features:", features)
+    # Debugging: Print input features dengan nama
+    st.write("Input Features:")
+    for name, value in feature_names.items():
+        st.write(f"{name}: {value}")
     
     try:
         model = loaded_models[algorithm]
