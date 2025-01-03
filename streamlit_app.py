@@ -14,15 +14,15 @@ st.title("Water Potability Prediction")
 algorithm = st.selectbox("Select Algorithm", options=list(loaded_models.keys()))
 
 # Input fitur
-ph = st.number_input("pH Level", min_value=0.0, max_value=14.0, value=0)
-hardness = st.number_input("Hardness", min_value=0.0, value=0)
-solids = st.number_input("Total Dissolved Solids", min_value=0, value=0)
-chloramines = st.number_input("Chloramines", min_value=0.0, value=0)
-sulfate = st.number_input("Sulfate", min_value=0.0, value=0)
-conductivity = st.number_input("Conductivity", min_value=0.0, value=0)
-organic_carbon = st.number_input("Organic Carbon", min_value=0.0, value=0)
-trihalomethanes = st.number_input("Trihalomethanes", min_value=0.0, value=0)
-turbidity = st.number_input("Turbidity", min_value=0.0, value=0)
+ph = st.number_input("pH Level", min_value=0.0, max_value=14.0, value=7.0)
+hardness = st.number_input("Hardness", min_value=0.0, value=100.0)
+solids = st.number_input("Total Dissolved Solids", min_value=0, value=1000)
+chloramines = st.number_input("Chloramines", min_value=0.0, value=5.0)
+sulfate = st.number_input("Sulfate", min_value=0.0, value=200.0)
+conductivity = st.number_input("Conductivity", min_value=0.0, value=500.0)
+organic_carbon = st.number_input("Organic Carbon", min_value=0.0, value=10.0)
+trihalomethanes = st.number_input("Trihalomethanes", min_value=0.0, value=80.0)
+turbidity = st.number_input("Turbidity", min_value=0.0, value=4.0)
 
 # Prediksi
 if st.button("Predict"):
