@@ -27,9 +27,15 @@ turbidity = st.number_input("Turbidity", min_value=0.0, value=4.0)
 # Buat prediksi
 if st.button("Predict"):
     features = np.array([[ph, hardness, solids, chloramines, sulfate, conductivity, organic_carbon, trihalomethanes, turbidity]])
-    prediction = model.predict(features)
     
-    if prediction[0] == 1:
-        st.success("Water is Potable")
-    else:
-        st.error("Water is Not Potable")
+    # Debugging: Print input features
+    st.write("Input Features:", features)
+    
+    try:
+        prediction = model.predict(features)
+        if prediction[0] == 1:
+            st.success("Water is Potable")
+        else:
+            st.error("Water is Not Potable")
+    except ValueError as e:
+        st.error(f"Error during prediction: {e}")
