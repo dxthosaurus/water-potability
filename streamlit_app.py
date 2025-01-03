@@ -61,7 +61,7 @@ if st.button("Predict"):
     # Debugging: Print input features dengan nama
     # Menampilkan tabel input fitur
     st.write("Input Features:")
-    st.table(feature_df)  # Atau gunakan st.dataframe(feature_df) untuk interaktivitas lebih
+    st.dataframe(feature_df)  # Atau gunakan st.dataframe(feature_df) untuk interaktivitas lebih
     
     try:
         model = loaded_models[algorithm]
