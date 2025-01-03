@@ -8,7 +8,7 @@ with open('models.pkl', 'rb') as file:
     loaded_models = pickle.load(file)
 
 # Pilih model yang ingin digunakan
-model = loaded_models['Random Forest']  # Ganti dengan model yang diinginkan
+model = loaded_models['Logistic Regression']  # Ganti dengan model yang diinginkan
 
 # Judul aplikasi
 st.title("Water Potability Prediction")
