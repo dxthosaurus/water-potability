@@ -5,7 +5,7 @@ import sklearn
 import pandas as pd
 
 # Memuat model dari file
-with open('models.pkl', 'rb') as file:
+with open('models1.pkl', 'rb') as file:
     loaded_models = pickle.load(file)
 
 # Judul aplikasi
