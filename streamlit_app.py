@@ -58,6 +58,9 @@ if st.button("Predict"):
     # Mengonversi dictionary menjadi DataFrame
     feature_df = pd.DataFrame(feature_names)
 
+    # Transpose DataFrame untuk menampilkan dalam orientasi horizontal
+    feature_df = feature_df.T
+
     # Debugging: Print input features dengan nama
     # Menampilkan tabel input fitur
     st.write("Input Features:")
