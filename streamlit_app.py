@@ -2,6 +2,7 @@ import streamlit as st
 import pickle
 import numpy as np
 import sklearn
+import pandas as pd
 
 # Memuat model dari file
 with open('models.pkl', 'rb') as file:
