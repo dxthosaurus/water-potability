@@ -30,21 +30,37 @@ if st.button("Predict"):
 
         # Dictionary untuk menampilkan input fitur dengan nama
     feature_names = {
-        "pH Level": ph,
-        "Hardness": hardness,
-        "Solids": solids,
-        "Chloramines": chloramines,
-        "Sulfate": sulfate,
-        "Conductivity": conductivity,
-        "Organic Carbon": organic_carbon,
-        "Trihalomethanes": trihalomethanes,
-        "Turbidity": turbidity
+        "Feature": [
+            "pH Level",
+            "Hardness",
+            "Total Dissolved Solids",
+            "Chloramines",
+            "Sulfate",
+            "Conductivity",
+            "Organic Carbon",
+            "Trihalomethanes",
+            "Turbidity"
+        ],
+        "Value": [
+            ph,
+            hardness,
+            solids,
+            chloramines,
+            sulfate,
+            conductivity,
+            organic_carbon,
+            trihalomethanes,
+            turbidity
+        ]
     }
-    
+
+    # Mengonversi dictionary menjadi DataFrame
+    feature_df = pd.DataFrame(feature_names)
+
     # Debugging: Print input features dengan nama
+    # Menampilkan tabel input fitur
     st.write("Input Features:")
-    for name, value in feature_names.items():
-        st.write(f"{name}: {value}")
+    st.table(feature_df)  # Atau gunakan st.dataframe(feature_df) untuk interaktivitas lebih
     
     try:
         model = loaded_models[algorithm]
